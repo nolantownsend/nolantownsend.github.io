@@ -9,7 +9,7 @@
 title: Exploring Earth Science Data
 
 # Your name to show in the footer
-author: Using programming to investigate Earth Science datasets 
+author: Nolan Townsend
 
 # --- List of links in the navigation bar --- #
 
@@ -79,7 +79,7 @@ social-network-links:
 
 # If you want to show a link to an RSS in the footer, add the site description here.
 # If you don't want to show an RSS link, remove the following line.
-rss-description: This website is a virtual proof that I'm awesome
+rss-description: Investigating earth sciences with programming
 
 # --- General options --- #
 
@@ -162,7 +162,7 @@ google_analytics: "UA-159448691-1"
 # --- Comments --- #
 
 # To use Disqus comments, sign up to https://disqus.com and fill in your Disqus shortname (NOT the userid)
-disqus: "@nolantownsend"
+disqus: "nolantownsend"
 
 # To use Facebook Comments, create a Facebook app and fill in the Facebook App ID
 #fb_comment_id: ""
