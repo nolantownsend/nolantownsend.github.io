@@ -22,8 +22,8 @@
   
   .list-filters .list-filter.filter-selected,
   .list-filters .list-filter:hover {
-    color: #4682B4;
-    background: #B8860B;
+    color: #fbfcfd;
+    background: #4682B4;
   }
   
   @media only screen and (max-width: 550px) {
