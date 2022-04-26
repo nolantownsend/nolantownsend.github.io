@@ -5,12 +5,12 @@ subtitle: Never lend a geologist money; to them a million years ago is recent.
 ---
 
 # What am I currently doing?
-At present, I am working as an water resources assistant engineer at [Hazen and Sawyer](https://www.hazenandsawyer.com/) in Albuquerque, New Mexico, where I am involved in analyzing water resources and assisting with water resources planning within the state of New Mexico, and beyond.
+At present, I am working as an water resources assistant engineer at [Hazen and Sawyer](https://www.hazenandsawyer.com/) in Denver, Colorado. My role generally involves analyzing and modelling water resources data.  I also help automate workflows and automate the generation of unimpaired inflows needed to drive the models we use.
 
-I am interested in all things pertaining to Earth Sciences.  My current interest is how climate change will affect future water availiablility, especially in the southwestern United States.  For full details on my past experience, see my full [resume](https://drive.google.com/file/d/11x2x3UTb03kDQmqOKLItCYpowo4Przh9/preview).
+I am interested in all things pertaining to Earth Sciences, but at present my primary focus is on hydrology and water resources.  My current interest is how climate change influences future water availiablility, especially in the western United States.  For full details on my past experience, see my [resume](https://drive.google.com/file/d/1ueDzAypykCTIwl4FU_-G_kzlUfSKcp8C/view?usp=sharing).
 
 # Recent Experience
-I recently graduated from UNM where I acquired a Masters degree in Earth and Planetary Sciences.  My research involved exploring the climatology and hydrology of the Rio Grande basin south of the San Marcial (New Mexico) stream gauge.  I explored drought scenarios with respect to climate change and impacts on the streamflow in the Rio Grande. To accomplish this, I used bias corrected and downscaled  [CMIP5](https://pcmdi.llnl.gov/mips/cmip5/data-portal.html) climate data from the [U.S Bureau of Reclamation](https://gdo-dcp.ucllnl.org/downscaled_cmip_projections/dcpInterface.html#Welcome).  The climate model output is used in conjunction with a surface hydrology model to produce routed streamflow based on the climate model output.  The routed streamflow values are “normalized” to match the statistics of the observed baseline period (1964-2013).  This statistical parameterization is a simple and effective technique to produce realistic future inflow values without explicitly accounting for human impairments upstream of the San Marcial streamgage.  I used these future inflow values in conjunction with a water balance model to assess future water resources management options.
+In the summer of 2019, I graduated from the University of New Mexico in Albuquerque, where I acquired a Masters degree in Earth and Planetary Sciences.  My research involved exploring the climatology and hydrology of the Rio Grande basin south of the San Marcial (New Mexico) stream gauge.  I explored drought scenarios with respect to climate change and impacts on the streamflow in the Rio Grande. To accomplish this, I used bias corrected and downscaled  [CMIP5](https://pcmdi.llnl.gov/mips/cmip5/data-portal.html) climate data from the [U.S Bureau of Reclamation](https://gdo-dcp.ucllnl.org/downscaled_cmip_projections/dcpInterface.html#Welcome).  The climate model output is used in conjunction with a surface hydrology model to produce routed streamflow based on the climate model output.  The routed streamflow values are “normalized” to match the statistics of the observed baseline period (1964-2013).  This statistical parameterization is a simple and effective technique to produce realistic future inflow values without explicitly accounting for human impairments upstream of the San Marcial streamgage.  I used these future inflow values in conjunction with a water balance model to assess future water resources management options.
 
 # Familiar Programs
 - [ArcMap](http://www.unm.edu/~ntownsend/) and ArcGIS Pro ( used primarily for water resource analysis)
@@ -48,6 +48,7 @@ insights from hydroeconomic modeling__](https://water-research.nmsu.edu/files/20
 - Travelling in general
 - Skiing
 - Woodworking
+- Brewing Kombucha
 - Board Games
 - Both hearing and coming up with the most awful puns
 - Reading (see list below for recent favorites):
