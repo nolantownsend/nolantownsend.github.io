@@ -1,0 +1,80 @@
+{{/* layouts/partials/header.html
+     Replaces PaperMod's default header.
+     Drop this file at: layouts/partials/header.html
+*/}}
+
+<!-- USGS survey banner -->
+<div class="powell-banner">
+  <span>{{ .Site.Params.surveyLabel | default "Hydrologic Sciences · Water Resources" }}</span>
+  <span>{{ .Site.Params.coordinates | default "38°51′N · 104°49′W" }}</span>
+</div>
+
+<!-- Masthead with elevation contour background -->
+<header class="powell-masthead">
+
+  <!-- Elevation contour SVG -->
+  <svg class="powell-contours" viewBox="0 0 1200 120" preserveAspectRatio="xMidYMid slice"
+       xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <!-- Index contours (heavier) -->
+    <path d="M0 110 Q80 95 180 102 Q300 110 420 94 Q540 78 660 88 Q780 98 900 82 Q1020 66 1100 74 Q1150 78 1200 70"
+          fill="none" stroke="#a89870" stroke-width="0.9" opacity="0.55"/>
+    <path d="M0 80 Q100 62 220 70 Q340 78 460 60 Q580 42 700 52 Q820 62 940 46 Q1060 30 1150 40 Q1175 43 1200 38"
+          fill="none" stroke="#a89870" stroke-width="0.9" opacity="0.5"/>
+    <path d="M0 50 Q120 30 250 38 Q380 46 500 28 Q620 10 740 20 Q860 30 980 14 Q1080 2 1200 8"
+          fill="none" stroke="#a89870" stroke-width="0.9" opacity="0.4"/>
+    <!-- Regular contours -->
+    <path d="M0 118 Q60 112 140 116 Q240 121 360 108 Q480 95 600 104 Q720 113 840 99 Q960 85 1060 92 Q1130 97 1200 90"
+          fill="none" stroke="#c8b990" stroke-width="0.5" opacity="0.55"/>
+    <path d="M0 104 Q70 97 160 100 Q280 104 400 90 Q520 76 640 86 Q760 96 880 82 Q1000 68 1090 75 Q1145 79 1200 74"
+          fill="none" stroke="#c8b990" stroke-width="0.5" opacity="0.5"/>
+    <path d="M0 96 Q90 88 200 93 Q320 98 440 83 Q560 68 680 78 Q800 88 920 74 Q1040 60 1130 67 Q1165 70 1200 65"
+          fill="none" stroke="#c8b990" stroke-width="0.5" opacity="0.45"/>
+    <path d="M0 88 Q100 79 210 84 Q340 90 460 74 Q580 58 700 68 Q820 78 940 63 Q1060 48 1150 57 Q1175 60 1200 55"
+          fill="none" stroke="#c8b990" stroke-width="0.5" opacity="0.45"/>
+    <path d="M0 72 Q110 62 230 68 Q360 75 480 58 Q600 41 720 52 Q840 63 960 48 Q1070 34 1155 43 Q1178 46 1200 42"
+          fill="none" stroke="#c8b990" stroke-width="0.5" opacity="0.4"/>
+    <path d="M0 64 Q120 53 250 59 Q380 66 500 49 Q620 32 740 43 Q860 54 980 40 Q1080 27 1165 35 Q1183 38 1200 34"
+          fill="none" stroke="#c8b990" stroke-width="0.5" opacity="0.38"/>
+    <path d="M0 56 Q130 44 260 50 Q390 57 510 40 Q630 23 750 34 Q870 45 990 31 Q1090 18 1170 27 Q1185 29 1200 26"
+          fill="none" stroke="#c8b990" stroke-width="0.5" opacity="0.35"/>
+    <path d="M0 44 Q140 31 270 38 Q400 45 520 28 Q640 11 760 22 Q880 33 1000 19 Q1095 7 1175 16 Q1188 18 1200 15"
+          fill="none" stroke="#c8b990" stroke-width="0.5" opacity="0.32"/>
+    <!-- Spot elevation labels -->
+    <line x1="320" y1="95" x2="320" y2="88" stroke="#a89870" stroke-width="0.8" opacity="0.5"/>
+    <line x1="640" y1="80" x2="640" y2="73" stroke="#a89870" stroke-width="0.8" opacity="0.5"/>
+    <line x1="960" y1="64" x2="960" y2="57" stroke="#a89870" stroke-width="0.8" opacity="0.5"/>
+    <text x="322" y="86" font-family="sans-serif" font-size="7" fill="#a89870" opacity="0.55">5280</text>
+    <text x="642" y="71" font-family="sans-serif" font-size="7" fill="#a89870" opacity="0.55">6420</text>
+    <text x="962" y="55" font-family="sans-serif" font-size="7" fill="#a89870" opacity="0.55">7840</text>
+  </svg>
+
+  <div class="powell-masthead-inner">
+    <!-- Wordmark -->
+    <div>
+      <span class="powell-eyebrow">{{ .Site.Params.discipline | default "Water Resources &amp; Hydrology" }}</span>
+      <a href="{{ .Site.BaseURL }}" class="powell-sitename-link">
+        <div class="powell-sitename">
+          {{- $parts := split .Site.Title " " -}}
+          {{- range $i, $w := $parts -}}
+            {{- if eq $i (sub (len $parts) 1) -}}<em>{{ $w }}</em>{{- else -}}{{ $w }} {{- end -}}
+          {{- end -}}
+        </div>
+      </a>
+      <p class="powell-tagline">{{ .Site.Params.tagline | default "Drainage districts, fluvial systems &amp; the arid lands of the West" }}</p>
+    </div>
+
+    <!-- Navigation -->
+    <nav aria-label="Main navigation">
+      <ul class="powell-nav">
+        {{- range .Site.Menus.main }}
+        <li>
+          <a href="{{ .URL }}"
+             {{- if $.IsMenuCurrent "main" . }} class="active"{{ end }}>
+            {{ .Name }}
+          </a>
+        </li>
+        {{- end }}
+      </ul>
+    </nav>
+  </div>
+</header>

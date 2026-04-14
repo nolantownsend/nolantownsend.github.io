@@ -1,0 +1,60 @@
+{{/* layouts/index.html
+     Custom home page layout.
+     Drop this file at: layouts/index.html
+*/}}
+{{ define "main" }}
+
+<!-- Hero card: Powell map + profile -->
+<div class="powell-hero">
+  <div class="powell-hero-map">
+    <img src="{{ .Site.Params.heroImage | default "/img/powell-map.jpg" }}"
+         alt="Arid Region of the United States Showing Drainage Districts — J.W. Powell, USGS 1890">
+  </div>
+  <div class="powell-hero-text">
+    <span class="powell-hero-label">About this site</span>
+    <h2 class="powell-hero-name">{{ .Site.Params.authorName | default .Site.Title }}</h2>
+    <p class="powell-hero-title">
+      {{ .Site.Params.authorTitle | default "Water Resources Engineer &amp; Hydrologist" }}
+    </p>
+    <p class="powell-hero-desc">{{ .Site.Params.authorBio | default "Field notes, technical writing, and portfolio work spanning watershed modeling, flood risk assessment, and the hydraulics of arid landscapes." }}</p>
+    <div class="powell-hero-links">
+      {{ if .Site.Params.resumeURL }}
+      <a class="btn-powell-primary" href="{{ .Site.Params.resumeURL }}">View Résumé</a>
+      {{ end }}
+      {{ if .Site.Params.portfolioURL }}
+      <a class="btn-powell-secondary" href="{{ .Site.Params.portfolioURL }}">See Portfolio</a>
+      {{ end }}
+    </div>
+  </div>
+</div>
+
+<!-- Posts list -->
+<div class="powell-divider"><span>Field Notes</span></div>
+
+{{- $pages := where .Site.RegularPages "Type" "posts" -}}
+{{- range $pages }}
+<article class="post-entry">
+  <div class="powell-date-block">
+    <div class="powell-date-day">{{ .Date.Format "02" }}</div>
+    <div class="powell-date-month">{{ .Date.Format "Jan" }}</div>
+    <div class="powell-date-month">{{ .Date.Format "2006" }}</div>
+  </div>
+  <div>
+    {{- with .Params.tags }}
+    <span class="powell-tag">{{ index . 0 }}</span>
+    {{- end }}
+    <h2><a class="entry-title-link" href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+    <p>{{ .Summary | plainify | truncate 200 }}</p>
+    <a class="powell-readmore" href="{{ .RelPermalink }}">Continue reading →</a>
+  </div>
+</article>
+{{- end }}
+
+<!-- Cartographic footer strip -->
+<div class="powell-coord-strip">
+  <span class="powell-coord">{{ .Site.Params.elevation | default "ELEV. 5,280 FT · DATUM NAVD88" }}</span>
+  <span class="powell-coord">Scale 1 : 250,000</span>
+  <span class="powell-coord">Plate LXIX</span>
+</div>
+
+{{ end }}

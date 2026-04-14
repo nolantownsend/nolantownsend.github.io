@@ -1,0 +1,53 @@
+# hugo.toml — add these params to your existing config
+# (merge with what you already have, don't replace the whole file)
+
+baseURL = "https://yourusername.github.io/"
+languageCode = "en-us"
+title = "Nolan Townsend"         # Last word gets italicised in the masthead
+theme = "PaperMod"
+paginate = 10
+
+[params]
+  # Powell theme params
+  discipline    = "Water Resources & Hydrology"
+  tagline       = "Drainage districts, fluvial systems & the arid lands of the West"
+  surveyLabel   = "U.S. Geological Survey — Hydrologic Sciences"
+  coordinates   = "38°51′N · 104°49′W"
+  elevation     = "ELEV. 5,280 FT · DATUM NAVD88"
+  heroImage     = "/img/powell-map.jpg"
+
+  # Your profile
+  authorName    = "Jane Doe"
+  authorTitle   = "Water Resources Engineer & Hydrologist, P.E."
+  authorBio     = "Field notes, technical writing, and portfolio work spanning watershed modeling, flood risk assessment, and the hydraulics of arid landscapes. Inspired by Powell's vision of a West organized by drainage, not by politics."
+  resumeURL     = "/resume/"
+  portfolioURL  = "/portfolio/"
+
+  # PaperMod settings
+  ShowReadingTime    = true
+  ShowPostNavLinks   = true
+  ShowBreadCrumbs    = false
+  ShowCodeCopyButtons = true
+
+# Navigation menu
+[menu]
+  [[menu.main]]
+    name   = "Field Notes"
+    url    = "/posts/"
+    weight = 1
+  [[menu.main]]
+    name   = "Portfolio"
+    url    = "/portfolio/"
+    weight = 2
+  [[menu.main]]
+    name   = "Résumé"
+    url    = "/resume/"
+    weight = 3
+  [[menu.main]]
+    name   = "About"
+    url    = "/about/"
+    weight = 4
+  [[menu.main]]
+    name   = "Contact"
+    url    = "/contact/"
+    weight = 5

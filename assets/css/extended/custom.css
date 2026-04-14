@@ -1,0 +1,512 @@
+/* ============================================================
+   Powell Watershed Theme — custom.css
+   Place at: assets/css/extended/custom.css
+   ============================================================ */
+
+/* ── CSS VARIABLES ─────────────────────────────────────────── */
+:root {
+  --pw-parchment:   #f5eedb;
+  --pw-parchment2:  #ede3c8;
+  --pw-parchment3:  #e4d9b8;
+  --pw-ink:         #2c2318;
+  --pw-ink-mid:     #5a4a35;
+  --pw-ink-faint:   #8a7860;
+  --pw-rule:        #c8b990;
+  --pw-rule-dark:   #a89870;
+  --pw-accent:      #7a5c2e;
+  --pw-basin-blue:  rgba(142,185,210,0.55);
+  --pw-basin-green: rgba(180,210,145,0.55);
+  --pw-basin-amber: rgba(230,210,120,0.55);
+  --pw-basin-terra: rgba(220,175,130,0.55);
+  --pw-font-serif:  'Playfair Display', Georgia, serif;
+  --pw-font-fell:   'IM Fell English', Georgia, serif;
+  --pw-font-body:   'Libre Baskerville', Georgia, serif;
+  --pw-font-sans:   'Source Sans 3', system-ui, sans-serif;
+}
+
+/* ── GLOBAL BODY ────────────────────────────────────────────── */
+body {
+  background-color: var(--pw-parchment) !important;
+  color: var(--pw-ink) !important;
+  font-family: var(--pw-font-body) !important;
+}
+
+/* ── SURVEY BANNER (above header) ──────────────────────────── */
+.powell-banner {
+  background: var(--pw-ink);
+  padding: 4px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.powell-banner span {
+  font-family: var(--pw-font-sans);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--pw-parchment3);
+  opacity: 0.7;
+}
+
+/* ── MASTHEAD ───────────────────────────────────────────────── */
+.powell-masthead {
+  background: var(--pw-parchment2);
+  border-bottom: 2px solid var(--pw-rule-dark);
+  position: relative;
+  overflow: hidden;
+}
+.powell-masthead-inner {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 28px 32px 20px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Elevation contour SVG is injected inline — just needs positioning */
+.powell-contours {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+/* Sitename as home link */
+.powell-sitename-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+.powell-sitename-link:hover .powell-sitename {
+  opacity: 0.75;
+  transition: opacity 0.2s;
+}
+
+/* Wordmark */
+.powell-eyebrow {
+  font-family: var(--pw-font-sans);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--pw-ink-faint);
+  display: block;
+  margin-bottom: 4px;
+}
+.powell-sitename {
+  font-family: var(--pw-font-serif);
+  font-size: 36px;
+  font-weight: 400;
+  line-height: 1;
+  color: var(--pw-ink);
+  letter-spacing: -0.01em;
+}
+.powell-sitename em {
+  font-style: italic;
+  color: var(--pw-accent);
+}
+.powell-tagline {
+  font-family: var(--pw-font-fell);
+  font-style: italic;
+  font-size: 13px;
+  color: var(--pw-ink-mid);
+  margin-top: 6px;
+}
+
+/* Nav */
+.powell-nav {
+  display: flex;
+  gap: 24px;
+  padding-bottom: 6px;
+  list-style: none;
+  margin: 0;
+}
+.powell-nav a {
+  font-family: var(--pw-font-sans);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--pw-ink-mid);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  padding-bottom: 2px;
+  transition: color 0.2s, border-color 0.2s;
+}
+.powell-nav a:hover,
+.powell-nav a.active {
+  color: var(--pw-accent);
+  border-bottom-color: var(--pw-accent);
+}
+
+/* ── HERO CARD ──────────────────────────────────────────────── */
+.powell-hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border: 1.5px solid var(--pw-rule-dark);
+  overflow: hidden;
+  margin-bottom: 48px;
+}
+.powell-hero-map {
+  position: relative;
+  min-height: 300px;
+  background: var(--pw-parchment3);
+  overflow: hidden;
+}
+.powell-hero-map img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+.powell-hero-map::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, transparent 70%, var(--pw-parchment2) 100%);
+  pointer-events: none;
+}
+.powell-hero-text {
+  background: var(--pw-parchment2);
+  padding: 40px 36px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-left: 1.5px solid var(--pw-rule-dark);
+  position: relative;
+}
+.powell-hero-text::before {
+  content: '';
+  position: absolute;
+  top: 20px; bottom: 20px; left: -1px;
+  width: 3px;
+  background: var(--pw-basin-blue);
+  border-left: 1.5px solid var(--pw-rule-dark);
+}
+.powell-hero-label {
+  font-family: var(--pw-font-sans);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--pw-ink-faint);
+  margin-bottom: 10px;
+}
+.powell-hero-name {
+  font-family: var(--pw-font-serif);
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 1.15;
+  color: var(--pw-ink);
+  margin-bottom: 8px;
+}
+.powell-hero-title {
+  font-family: var(--pw-font-fell);
+  font-style: italic;
+  font-size: 15px;
+  color: var(--pw-ink-mid);
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+.powell-hero-desc {
+  font-family: var(--pw-font-body);
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--pw-ink-mid);
+  margin-bottom: 24px;
+}
+.powell-hero-links {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* ── BUTTONS ────────────────────────────────────────────────── */
+.btn-powell-primary {
+  font-family: var(--pw-font-sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 8px 20px;
+  background: var(--pw-ink);
+  color: var(--pw-parchment);
+  border: none;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+}
+.btn-powell-secondary {
+  font-family: var(--pw-font-sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 8px 20px;
+  background: transparent;
+  color: var(--pw-ink);
+  border: 1.5px solid var(--pw-rule-dark);
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+}
+
+/* ── SECTION DIVIDER ────────────────────────────────────────── */
+.powell-divider {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.powell-divider h2,
+.powell-divider span {
+  font-family: var(--pw-font-serif);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--pw-ink-faint);
+  white-space: nowrap;
+}
+.powell-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--pw-rule);
+}
+
+/* ── POST CARDS ─────────────────────────────────────────────── */
+/* Override PaperMod's .post-entry */
+.post-entry {
+  background: transparent !important;
+  border: none !important;
+  border-top: 1.5px solid var(--pw-rule) !important;
+  border-radius: 0 !important;
+  padding: 24px 0 !important;
+  display: grid !important;
+  grid-template-columns: 80px 1fr !important;
+  gap: 20px !important;
+  box-shadow: none !important;
+}
+.post-entry:last-child {
+  border-bottom: 1.5px solid var(--pw-rule) !important;
+}
+
+/* Date block — add via shortcode or front matter custom field */
+.powell-date-block {
+  text-align: center;
+  padding-top: 4px;
+}
+.powell-date-day {
+  font-family: var(--pw-font-serif);
+  font-size: 28px;
+  line-height: 1;
+  color: var(--pw-ink);
+}
+.powell-date-month {
+  font-family: var(--pw-font-sans);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--pw-ink-faint);
+  margin-top: 3px;
+}
+
+/* Post tag */
+.post-entry .post-tag,
+.powell-tag {
+  display: inline-block;
+  font-family: var(--pw-font-sans);
+  font-size: 9.5px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--pw-accent);
+  padding: 2px 8px;
+  border: 1px solid rgba(122,92,46,0.35);
+  background: rgba(122,92,46,0.06);
+  margin-bottom: 8px;
+}
+
+/* Post title */
+.entry-title-link,
+.post-entry h2 a {
+  font-family: var(--pw-font-serif) !important;
+  font-size: 18px !important;
+  font-weight: 600 !important;
+  line-height: 1.3 !important;
+  color: var(--pw-ink) !important;
+  text-decoration: none !important;
+}
+.entry-title-link:hover,
+.post-entry h2 a:hover {
+  color: var(--pw-accent) !important;
+}
+
+/* Post excerpt */
+.post-entry .entry-content,
+.post-entry p {
+  font-family: var(--pw-font-body) !important;
+  font-size: 13px !important;
+  line-height: 1.7 !important;
+  color: var(--pw-ink-mid) !important;
+}
+
+/* Read more link */
+.entry-readtime a,
+.powell-readmore {
+  font-family: var(--pw-font-sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--pw-accent);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(122,92,46,0.3);
+  padding-bottom: 1px;
+}
+
+/* ── SIDEBAR WIDGETS ────────────────────────────────────────── */
+.powell-widget {
+  border: 1.5px solid var(--pw-rule);
+  padding: 20px 20px 16px;
+  margin-bottom: 28px;
+  background: var(--pw-parchment2);
+  position: relative;
+}
+.powell-widget::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--pw-basin-blue);
+}
+.powell-widget.green::before  { background: var(--pw-basin-green); }
+.powell-widget.amber::before  { background: var(--pw-basin-amber); }
+.powell-widget.terra::before  { background: var(--pw-basin-terra); }
+
+.powell-widget-label {
+  font-family: var(--pw-font-sans);
+  font-size: 9.5px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--pw-ink-faint);
+  margin-bottom: 14px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--pw-rule);
+}
+
+/* ── TAGS ───────────────────────────────────────────────────── */
+.powell-tag-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.powell-tag-pill {
+  font-family: var(--pw-font-sans);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--pw-ink-mid);
+  padding: 3px 9px;
+  border: 1px solid var(--pw-rule);
+  background: var(--pw-parchment);
+  text-decoration: none;
+}
+.powell-tag-pill.blue  { border-color: rgba(142,185,210,0.7); background: rgba(142,185,210,0.18); color: #3a6070; }
+.powell-tag-pill.green { border-color: rgba(180,210,145,0.7); background: rgba(180,210,145,0.18); color: #3a5a20; }
+.powell-tag-pill.amber { border-color: rgba(230,210,120,0.7); background: rgba(230,210,120,0.2);  color: #6a5010; }
+
+/* ── CARTOGRAPHIC FOOTER STRIP ──────────────────────────────── */
+.powell-coord-strip {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+  border-top: 1px solid var(--pw-rule);
+  margin-top: 8px;
+}
+.powell-coord {
+  font-family: var(--pw-font-sans);
+  font-size: 10px;
+  color: var(--pw-ink-faint);
+  letter-spacing: 0.05em;
+}
+
+/* ── SITE FOOTER ────────────────────────────────────────────── */
+.powell-footer {
+  border-top: 2px solid var(--pw-rule-dark);
+  background: var(--pw-parchment2);
+  padding: 20px 32px;
+}
+.powell-footer-inner {
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.powell-footer-text {
+  font-family: var(--pw-font-fell);
+  font-style: italic;
+  font-size: 12px;
+  color: var(--pw-ink-faint);
+}
+
+/* Scale bar */
+.powell-scale { display: flex; align-items: center; gap: 6px; }
+.powell-scale-bar {
+  width: 60px; height: 6px;
+  display: flex; overflow: hidden;
+  border: 1px solid var(--pw-rule-dark);
+}
+.powell-scale-seg { flex: 1; }
+.powell-scale-seg:nth-child(odd)  { background: var(--pw-ink); }
+.powell-scale-seg:nth-child(even) { background: var(--pw-parchment); }
+.powell-scale-label {
+  font-family: var(--pw-font-sans);
+  font-size: 9px;
+  color: var(--pw-ink-faint);
+  letter-spacing: 0.1em;
+}
+
+/* ── ARTICLE / SINGLE POST STYLES ───────────────────────────── */
+.post-single .post-title,
+article h1 {
+  font-family: var(--pw-font-serif) !important;
+  color: var(--pw-ink) !important;
+}
+article h2, article h3, article h4 {
+  font-family: var(--pw-font-serif) !important;
+  color: var(--pw-ink) !important;
+}
+article p, article li {
+  font-family: var(--pw-font-body);
+  color: var(--pw-ink-mid);
+  line-height: 1.8;
+}
+article blockquote {
+  border-left: 3px solid var(--pw-rule-dark);
+  background: var(--pw-parchment2);
+  padding: 12px 20px;
+  font-family: var(--pw-font-fell);
+  font-style: italic;
+  color: var(--pw-ink-mid);
+}
+
+/* ── RESPONSIVE ─────────────────────────────────────────────── */
+@media (max-width: 700px) {
+  .powell-hero { grid-template-columns: 1fr; }
+  .powell-hero-map { min-height: 200px; }
+  .powell-masthead-inner { flex-direction: column; align-items: flex-start; }
+  .powell-nav { flex-wrap: wrap; gap: 16px; }
+  .post-entry { grid-template-columns: 1fr !important; }
+}
