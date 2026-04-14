@@ -19,7 +19,7 @@ theme = "PaperMod"
 
   # Your profile
   authorName    = "Jane Doe"
-  authorTitle   = "Water Resources Engineer & Hydrologist, P.E."
+  authorTitle   = "Water Resources Scientist | Digital Solutions | Data Management"
   authorBio     = "Field notes, technical writing, and portfolio work spanning watershed modeling, flood risk assessment, and the hydraulics of arid landscapes. Inspired by Powell's vision of a West organized by drainage, not by politics."
   resumeURL     = "/resume/"
   portfolioURL  = "/portfolio/"
