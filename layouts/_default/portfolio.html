@@ -1,0 +1,100 @@
+{{/* layouts/_default/portfolio.html
+     Single-page layout for portfolio.md
+     Drop at: layouts/_default/portfolio.html
+*/}}
+{{ define "main" }}
+
+<div style="max-width:780px; margin:0 auto; padding:48px 32px 64px;">
+
+  <!-- Page header -->
+  <div class="powell-divider" style="margin-bottom:36px;">
+    <span>{{ .Title }}</span>
+  </div>
+
+  <p style="
+    font-family: var(--pw-font-display);
+    font-style: italic;
+    font-size: 17px;
+    color: var(--pw-ink-mid);
+    line-height: 1.7;
+    margin-bottom: 48px;
+  ">{{ .Description }}</p>
+
+  <!-- Rendered markdown content -->
+  <div class="powell-prose">
+    {{ .Content }}
+  </div>
+
+  <!-- Cartographic coord strip -->
+  <div class="powell-coord-strip" style="margin-top:48px;">
+    <span class="powell-coord">{{ $.Site.Params.elevation | default "Elev. 5,280 ft · Datum NAVD88" }}</span>
+    <span class="powell-coord">Scale 1 : 250,000</span>
+    <span class="powell-coord">Plate LXIX</span>
+  </div>
+
+</div>
+
+<style>
+/* ── Portfolio prose overrides ─── */
+.powell-prose h2 {
+  font-family: var(--pw-font-display);
+  font-size: 22px;
+  font-weight: 400;
+  color: var(--pw-ink);
+  margin: 52px 0 4px;
+  padding-bottom: 8px;
+  border-bottom: 1.5px solid var(--pw-rule);
+  letter-spacing: 0.01em;
+}
+.powell-prose h2:first-of-type { margin-top: 0; }
+.powell-prose p strong {
+  font-family: var(--pw-font-mono);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--pw-ink-faint);
+  font-weight: 400;
+}
+.powell-prose p { margin-bottom: 12px; }
+.powell-prose ul {
+  padding-left: 18px;
+  margin-bottom: 16px;
+}
+.powell-prose ul li {
+  font-family: var(--pw-font-body);
+  font-size: var(--pw-font-size);
+  color: var(--pw-ink-mid);
+  line-height: 1.75;
+  margin-bottom: 4px;
+  list-style: none;
+  padding-left: 14px;
+  position: relative;
+}
+.powell-prose ul li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--pw-rule-dark);
+  font-family: var(--pw-font-mono);
+  font-size: 11px;
+}
+.powell-prose em {
+  font-family: var(--pw-font-mono);
+  font-style: normal;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--pw-ink-faint);
+  display: block;
+  margin-top: 12px;
+  border-top: 1px solid var(--pw-rule);
+  padding-top: 8px;
+}
+.powell-prose hr {
+  border: none;
+  border-top: 1px solid var(--pw-rule);
+  margin: 0;
+}
+</style>
+
+{{ end }}

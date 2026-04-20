@@ -1,0 +1,121 @@
+{{/* layouts/_default/resume.html
+     Single-page layout for resume.md
+     Drop at: layouts/_default/resume.html
+*/}}
+{{ define "main" }}
+
+<div style="max-width:780px; margin:0 auto; padding:48px 32px 64px;">
+
+  <div class="powell-divider" style="margin-bottom:36px;">
+    <span>{{ .Title }}</span>
+  </div>
+
+  <div class="powell-resume-prose">
+    {{ .Content }}
+  </div>
+
+  <div class="powell-coord-strip" style="margin-top:48px;">
+    <span class="powell-coord">{{ $.Site.Params.elevation | default "Elev. 5,280 ft · Datum NAVD88" }}</span>
+    <span class="powell-coord">Scale 1 : 250,000</span>
+    <span class="powell-coord">Plate LXIX</span>
+  </div>
+
+</div>
+
+<style>
+/* ── Resume prose ─── */
+.powell-resume-prose > p:first-child {
+  font-family: var(--pw-font-display);
+  font-style: italic;
+  font-size: 17px;
+  color: var(--pw-ink-mid);
+  line-height: 1.72;
+  margin-bottom: 36px;
+}
+
+/* Name heading suppressed — handled in content */
+.powell-resume-prose h2 {
+  font-family: var(--pw-font-mono);
+  font-size: 9.5px;
+  font-weight: 400;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--pw-ink-faint);
+  margin: 44px 0 16px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--pw-rule);
+}
+.powell-resume-prose h2:first-of-type { margin-top: 0; }
+
+.powell-resume-prose h3 {
+  font-family: var(--pw-font-display);
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--pw-ink);
+  margin: 28px 0 2px;
+  line-height: 1.2;
+}
+.powell-resume-prose h3 + p strong {
+  font-family: var(--pw-font-mono);
+  font-size: 9.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--pw-accent);
+  font-weight: 400;
+}
+
+.powell-resume-prose p {
+  font-family: var(--pw-font-body);
+  font-size: var(--pw-font-size);
+  color: var(--pw-ink-mid);
+  line-height: 1.72;
+  margin-bottom: 10px;
+}
+
+.powell-resume-prose ul {
+  padding-left: 0;
+  margin: 8px 0 20px;
+}
+.powell-resume-prose ul li {
+  font-family: var(--pw-font-body);
+  font-size: var(--pw-font-size);
+  color: var(--pw-ink-mid);
+  line-height: 1.72;
+  margin-bottom: 6px;
+  list-style: none;
+  padding-left: 18px;
+  position: relative;
+}
+.powell-resume-prose ul li::before {
+  content: '·';
+  position: absolute;
+  left: 4px;
+  color: var(--pw-rule-dark);
+  font-family: var(--pw-font-mono);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.powell-resume-prose hr {
+  border: none;
+  border-top: 1px solid var(--pw-rule);
+  margin: 4px 0 0;
+}
+
+/* Skills — displayed as a definition-list style */
+.powell-resume-prose p strong {
+  font-family: var(--pw-font-mono);
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--pw-ink-faint);
+  font-weight: 400;
+  margin-right: 6px;
+}
+.powell-resume-prose em {
+  font-style: italic;
+  color: var(--pw-ink-mid);
+}
+</style>
+
+{{ end }}

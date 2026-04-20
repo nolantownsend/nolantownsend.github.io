@@ -18,9 +18,9 @@ theme = "PaperMod"
   heroImage     = "/img/powell-map.jpg"
 
   # Your profile
-  authorName    = "Jane Doe"
+  authorName    = "Nolan Townsend"
   authorTitle   = "Water Resources Scientist | Digital Solutions | Data Management"
-  authorBio     = "Field notes, technical writing, and portfolio work spanning watershed modeling, flood risk assessment, and the hydraulics of arid landscapes. Inspired by Powell's vision of a West organized by drainage, not by politics."
+  authorBio     = "Field notes, technical writing, and portfolio work spanning watershed modeling, impacts assessment, and digital solutions. Inspired by Powell's vision of a West organized by drainage, not by politics."
   resumeURL     = "/resume/"
   portfolioURL  = "/portfolio/"
 
