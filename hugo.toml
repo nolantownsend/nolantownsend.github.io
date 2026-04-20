@@ -12,7 +12,7 @@ theme = "PaperMod"
   # Powell theme params
   discipline    = "Water Resources & Hydrology"
   tagline       = "Water Resources Scientist in the Western United States"
-  surveyLabel   = "U.S. Geological Survey — Hydrologic Sciences"
+  surveyLabel   = "Hydrologic Sciences"
   coordinates   = "38°51′N · 104°49′W"
   elevation     = "ELEV. 5,280 FT · DATUM NAVD88"
   heroImage     = "/img/powell-map.jpg"
