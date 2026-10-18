@@ -1,5 +1,0 @@
-<footer class="site-footer">
-<span>{{ site.Params.powell.name | default site.Title }} · {{ site.Params.powell.tagline }}</span>
-{{ partial "powell/scalebar.html" . }}
-<span>{{ with site.Params.powell.mapCredit }}{{ . }} · {{ end }}{{ range site.Params.powell.social }}<a href="{{ .url }}">{{ .name }}</a> {{ end }}</span>
-</footer>

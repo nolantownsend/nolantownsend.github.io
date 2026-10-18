@@ -1,2 +1,0 @@
-{{- /* ctx: dict "src" path "alt" text "label" placeholder-label */ -}}
-{{- with .src -}}<img src="{{ . | relURL }}" alt="{{ $.alt }}" loading="lazy">{{- else -}}<div class="ph">{{ .label | default "Add image" }}</div>{{- end -}}

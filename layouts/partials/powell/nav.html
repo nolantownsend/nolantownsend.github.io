@@ -1,6 +1,0 @@
-{{- $cur := . -}}
-<nav aria-label="Main"><ul class="nav">
-{{- range site.Menus.main }}
-<li><a href="{{ .URL }}"{{ if or ($cur.IsMenuCurrent "main" .) ($cur.HasMenuCurrent "main" .) }} aria-current="page"{{ end }}>{{ .Name }}</a></li>
-{{- end }}
-</ul></nav>
