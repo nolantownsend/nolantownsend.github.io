@@ -1,5 +1,5 @@
 +++
-title = 'Central Ohio Water Study'
+title = 'Project 1'
 date = '2026-06-01'
 tools = ['Research', 'Interview Notes']
 categories = ['Research']
