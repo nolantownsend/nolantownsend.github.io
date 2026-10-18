@@ -1,0 +1,100 @@
+baseURL = "https://example.com/"
+languageCode = "en-us"
+title = "Nolan Townsend"
+# theme = "PaperMod"   # optional: these layouts override PaperMod's baseof, home, list and single
+
+[params]
+description = "Water resources, GIS and data — Nolan Townsend"
+
+[params.powell]
+layout = "expedition"          # expedition | atlas | fieldnotes
+name = "Nolan Townsend"
+tagline = "Water Resources • GIS • Data"
+coordinates = "39° 50′ N · 105° 02′ W"
+scaleLabel = "100 mi"
+heroImage = "/img/powell-arid-region-1890.jpg"
+heroAlt = "J.W. Powell, Arid Region of the United States, Showing Drainage Districts, 1890"
+mapTitle = "United States Drainage Districts"
+mapAuthor = "John Wesley Powell"
+mapCredit = "Map: J.W. Powell, USGS 1890 (scan: Torpyl, CC BY-SA 4.0)"
+
+riverlogCount = 4
+riverlogStyle = "rows"     # rows | preview
+riverMileStep = 2.5
+
+# Category colors (Powell map district tints). Keys are lowercase category names.
+[params.powell.categoryColors]
+hydrology = "#7aaec6"
+drought = "#c99a3a"
+groundwater = "#b8643c"
+gis = "#7a8a3e"
+"data & tools" = "#737a90"
+climate = "#c4807a"
+research = "#5a8a8a"
+
+[params.powell.hero]
+eyebrow = "Exploring water, land, and data"
+title = "Better decisions for a more resilient water future."
+text = "I'm a senior water resources analyst at the City of Westminster with a background in hydrology, GIS, and data visualization. I work at the intersection of science, technology, and public service to help communities manage water in a changing climate."
+ctaText = "View Field Notes"
+ctaURL = "/field-notes/"
+
+[params.powell.heroByLayout.atlas]
+eyebrow = "Water resources • GIS • Data"
+title = "Mapping solutions for a changing climate."
+text = "I'm a senior water resources analyst at the City of Westminster, building tools and insights to help communities understand, plan for, and adapt to water challenges."
+ctaText = "Explore My Work"
+
+[params.powell.heroByLayout.fieldnotes]
+eyebrow = "Field notes"
+title = "Water, data, and the places in between."
+text = "I'm a senior water resources analyst at the City of Westminster, working at the intersection of hydrology, GIS, and data science. Here you'll find a mix of project work, research, and writing on water resources, drought, and climate resilience."
+
+[params.powell.about]
+title = "Hi, I'm Nolan."
+text = "I work in water resources, GIS, and data analysis, with a focus on practical solutions for water supply, drought, and resilience. This site is a collection of my projects, research, and writing."
+url = "/about/"
+image = ""                      # e.g. "/img/colorado-river-engraving.jpg"
+caption = "Colorado River, looking downstream from Lee's Ferry"
+
+[params.powell.panorama]
+image = ""                      # leave empty to show topographic lines instead
+alt = "Engraving of canyon country"
+
+[params.powell.quote]
+text = "You are piling up a heritage of conflict and litigation over water rights, for there is not sufficient water to supply the land."
+author = "John Wesley Powell"
+source = "1893"
+
+[[params.powell.social]]
+name = "GitHub"
+url = "https://github.com/"
+[[params.powell.social]]
+name = "LinkedIn"
+url = "https://www.linkedin.com/"
+
+[menus]
+[[menus.main]]
+name = "Home"
+pageRef = "/"
+weight = 1
+[[menus.main]]
+name = "About"
+pageRef = "/about"
+weight = 2
+[[menus.main]]
+name = "Field Notes"
+pageRef = "/field-notes"
+weight = 3
+[[menus.main]]
+name = "Resources"
+pageRef = "/resources"
+weight = 4
+[[menus.main]]
+name = "CV"
+pageRef = "/resume"
+weight = 5
+[[menus.main]]
+name = "Contact"
+url = "mailto:nolantownsend@gmail.com"
+weight = 6

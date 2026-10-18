@@ -1,0 +1,54 @@
+{{ define "main" }}
+{{- $p := site.Params.powell -}}
+{{- $layout := $p.layout | default "expedition" -}}
+{{- $hero := $p.hero | default dict -}}
+{{- with index ($p.heroByLayout | default dict) $layout }}{{ $hero = merge $hero . }}{{ end -}}
+{{- $projects := where site.RegularPages "Section" "field-notes" -}}
+{{- $featured := where $projects "Params.featured" true -}}
+{{- if not $featured }}{{ $featured = $projects }}{{ end -}}
+{{- $featured = first 3 $featured -}}
+{{- $posts := first 3 (where site.RegularPages "Section" "resources") -}}
+
+{{- if eq $layout "expedition" }}
+<section class="hero">
+<div class="hero-text">
+<p class="eyebrow">{{ $hero.eyebrow }}</p>
+<h1 class="h-display">{{ $hero.title }}</h1>
+<p class="lede">{{ $hero.text }}</p>
+{{ with $hero.ctaText }}<p><a class="btn" href="{{ $hero.ctaURL | relURL }}">{{ . }} <span aria-hidden="true">→</span></a></p>{{ end }}
+</div>
+<div class="hero-map"><img src="{{ $p.heroImage | relURL }}" alt="{{ $p.heroAlt }}"><p class="map-caption">{{ $p.mapTitle }}<em>{{ $p.mapAuthor }}</em></p></div>
+</section>
+{{ partial "powell/riverlog.html" . }}
+{{ with $p.quote }}<section class="quote quote-topo">{{ partial "powell/quote.html" $ }}</section>{{ end }}
+
+{{- else if eq $layout "atlas" }}
+<section class="hero">
+<img src="{{ $p.heroImage | relURL }}" alt="{{ $p.heroAlt }}">
+{{ partial "powell/header.html" . }}
+<div class="hero-text">
+<p class="eyebrow">{{ $hero.eyebrow }}</p>
+<h1 class="h-display">{{ $hero.title }}</h1>
+<p class="lede">{{ $hero.text }}</p>
+{{ with $hero.ctaText }}<p><a class="btn btn-ghost" href="{{ $hero.ctaURL | relURL }}">{{ . }} <span aria-hidden="true">→</span></a></p>{{ end }}
+</div>
+<p class="map-caption">{{ $p.mapTitle }}<em>{{ $p.mapAuthor }}</em></p>
+</section>
+{{ with $p.about }}<section class="about">
+<div><p class="eyebrow">About me</p><h2 class="h-section" style="margin-top:10px">{{ .title }}</h2><p class="lede">{{ .text }}</p>{{ with .url }}<a class="link-arrow" href="{{ . | relURL }}">More about me →</a>{{ end }}</div>
+<figure><div class="img">{{ partial "powell/img.html" (dict "src" .image "alt" .caption "label" "Engraving or field photo") }}</div>{{ with .caption }}<figcaption>{{ . }}</figcaption>{{ end }}</figure>
+</section>{{ end }}
+<section class="recent"><h2 class="section-label">Recent Field Notes</h2><div class="cards">{{ range $featured }}{{ partial "powell/card.html" . }}{{ end }}</div></section>
+{{ with $p.quote }}<section class="quote">{{ partial "powell/quote.html" $ }}{{ partial "powell/compass.html" $ }}</section>{{ end }}
+
+{{- else }}
+<section class="intro">
+<p class="eyebrow">{{ $hero.eyebrow }}</p>
+<h1 class="h-display">{{ $hero.title }}</h1>
+<p class="lede">{{ $hero.text }}</p>
+</section>
+<section class="block"><h2 class="section-label">Featured</h2><ul class="rows">{{ range $featured }}{{ partial "powell/row.html" . }}{{ end }}</ul></section>
+{{ partial "powell/panorama.html" . }}
+<section class="block"><h2 class="section-label">Recent Resources</h2><ul class="rows compact">{{ range $posts }}{{ partial "powell/row-compact.html" . }}{{ end }}</ul></section>
+{{- end }}
+{{ end }}

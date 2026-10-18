@@ -1,0 +1,22 @@
+{{- $layout := site.Params.powell.layout | default "expedition" -}}
+<!DOCTYPE html>
+<html lang="{{ site.Language.LanguageCode | default "en" }}">
+<head>{{ partial "powell/head.html" . }}</head>
+<body class="l-{{ $layout }}" style="--topo-light:url('{{ "img/topo-light.svg" | relURL }}');--topo-dark:url('{{ "img/topo-dark.svg" | relURL }}')">
+<a class="skip" href="#main">Skip to content</a>
+{{- if eq $layout "fieldnotes" }}
+<div class="shell">
+{{ partial "powell/sidebar.html" . }}
+<div class="main">
+{{ partial "powell/mainhead.html" . }}
+<main id="main">{{ block "main" . }}{{ end }}</main>
+{{ partial "powell/footer.html" . }}
+</div>
+</div>
+{{- else }}
+{{- if not (and .IsHome (eq $layout "atlas")) }}{{ partial "powell/header.html" . }}{{ end }}
+<main id="main">{{ block "main" . }}{{ end }}</main>
+{{ partial "powell/footer.html" . }}
+{{- end }}
+</body>
+</html>

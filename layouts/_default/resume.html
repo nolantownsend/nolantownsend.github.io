@@ -1,0 +1,13 @@
+{{ define "main" }}
+<article class="page cv">
+<header class="page-head cv-head">
+<div><p class="eyebrow">{{ site.Params.powell.tagline }}</p><h1 class="h-display" style="margin-top:10px">{{ .Title }}</h1></div>
+<div class="cv-actions">
+{{- with .Params.pdf }}<a class="btn" href="{{ . | relURL }}" download>Download PDF</a>{{ end }}
+<button class="btn btn-line" type="button" onclick="window.print()">Print</button>
+</div>
+</header>
+<div class="prose cv-body">{{ .Content }}</div>
+<p class="cv-updated">Updated {{ .Lastmod.Format "January 2006" }}</p>
+</article>
+{{ end }}

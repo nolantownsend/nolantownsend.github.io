@@ -1,0 +1,11 @@
+{{ define "main" }}
+<article class="page">
+<header class="page-head">
+<p class="eyebrow">{{ with .Section }}{{ . | humanize }}{{ end }}</p>
+<h1 class="h-display" style="margin-top:10px">{{ .Title }}</h1>
+<p class="meta">{{ if not .Date.IsZero }}{{ .Date.Format "January 2, 2006" }} · {{ end }}{{ .ReadingTime }} min read{{ with .Params.tools }} · {{ delimit . " • " }}{{ end }}</p>
+</header>
+{{ with .Params.image }}<figure style="margin-bottom:32px"><img src="{{ . | relURL }}" alt="{{ $.Title }}" style="border:1px solid var(--rule)"></figure>{{ end }}
+<div class="prose">{{ .Content }}</div>
+</article>
+{{ end }}

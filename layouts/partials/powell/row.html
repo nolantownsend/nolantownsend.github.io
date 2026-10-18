@@ -1,0 +1,4 @@
+<li><a class="row" href="{{ .RelPermalink }}">
+<span class="row-thumb">{{ partial "powell/img.html" (dict "src" .Params.image "alt" "" "label" "image") }}</span>
+<span><span class="row-title">{{ .Title }}</span>{{ with .Params.tools }}<span class="tags" style="margin-top:4px">{{ range . }}<span>{{ . }}</span>{{ end }}</span>{{ end }}<span class="row-date" style="display:block">{{ .Date.Format "Jan 2006" }}</span></span>
+<span class="row-arrow" aria-hidden="true">→</span></a></li>
