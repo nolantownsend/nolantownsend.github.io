@@ -1,0 +1,2 @@
+{{- $pn := site.Params.powell.panorama | default dict -}}
+<figure class="panorama{{ if not $pn.image }} topo{{ end }}">{{ with $pn.image }}<img src="{{ . | relURL }}" alt="{{ $pn.alt }}" loading="lazy">{{ end }}<span class="coords">{{ site.Params.powell.coordinates }}</span></figure>

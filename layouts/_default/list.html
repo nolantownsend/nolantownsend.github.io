@@ -1,0 +1,7 @@
+{{ define "main" }}
+<section class="page">
+<header class="page-head"><p class="eyebrow">{{ site.Params.powell.tagline }}</p><h1 class="h-display" style="margin-top:10px">{{ .Title }}</h1>{{ with .Content }}<div class="prose" style="margin-top:16px">{{ . }}</div>{{ end }}</header>
+{{ if eq .Section "field-notes" }}<div class="cards">{{ range .Pages }}{{ partial "powell/card.html" . }}{{ end }}</div>
+{{ else }}<ul class="rows compact">{{ range .Pages }}{{ partial "powell/row-compact.html" . }}{{ end }}</ul>{{ end }}
+</section>
+{{ end }}

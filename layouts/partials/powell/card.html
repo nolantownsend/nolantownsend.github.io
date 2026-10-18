@@ -1,0 +1,6 @@
+<a class="card" href="{{ .RelPermalink }}">
+<div class="card-img">{{ partial "powell/img.html" (dict "src" .Params.image "alt" .Title "label" "Project image") }}</div>
+<div class="card-body"><h3 class="card-title">{{ .Title }}</h3>
+{{- with .Params.tools }}<div class="tags">{{ range . }}<span>{{ . }}</span>{{ end }}</div>{{ end }}
+<span class="card-more">View →</span></div>
+</a>
